@@ -1,0 +1,12 @@
+#!/bin/sh
+
+while read oldrev newrev refname; do
+    # Detect the branch that was pushed (e.g., 'refs/heads/main')
+    branch=$(git rev-parse --symbolic --abbrev-ref $refname)
+
+    # Only trigger the script for the 'main' branch (replace 'main' with your desired branch name)
+    if [ "$branch" = "master" ]; then
+        # Replace 'your_script_name.js' with the name of your JavaScript script and adjust the path accordingly
+        node ../../main.js
+    fi
+done
